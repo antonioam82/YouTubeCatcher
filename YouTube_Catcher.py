@@ -18,15 +18,18 @@ def direc():
         os.chdir(directorio)
 
 def descarga():
-    print(URLL.get())
-    v = pafy.new(URLL.get())
-    print(v.title)
-    s = v.getbest()
-    try:
-        filename = s.download()
-        messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
-    except:
-        messagebox.showwarning("ERROR","Se produjo un error inesperado")
+    if URLL.get()!="":
+        print(URLL.get())
+        v = pafy.new(URLL.get())
+        print(v.title)
+        s = v.getbest()
+        try:
+            filename = s.download()
+            messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
+        except:
+            messagebox.showwarning("ERROR","Se produjo un error inesperado")
+    else:
+        messagebox.showwarning("ERROR","Introduzca URL de video")
     
 
 Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30).place(x=196,y=130)
