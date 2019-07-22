@@ -8,7 +8,7 @@ import os
 import pafy
 
 ventana=Tk()
-ventana.geometry("700x490")
+ventana.geometry("712x490")
 ventana.configure(background="navajo white")
 ventana.title("DESCARGA DESDE YOUTUBE")
 URLL=StringVar()
