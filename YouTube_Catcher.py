@@ -7,7 +7,7 @@ from tkinter import messagebox
 import os
 import pafy
 
-#https://youtu.be/cfcqewZdBiU
+#https://youtu.be/8tQ5YhpGl0Q
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -30,10 +30,13 @@ def extrae_audio():
     if URLL.get()!="":
         try:
             v = pafy.new(URLL.get())
-            #print(v.title)
-            s = v.getbestaudio()
+            print(v.title)
+            try:
+                s = v.getbestaudio(preftype="m4a")
+            except:
+                s = v.getbestaudio()
             s.download()
-            #print(filename)
+            print(filename)
             messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
         except:
             messagebox.showwarning("ERROR","Se he producido un error en la descarga")
@@ -45,8 +48,13 @@ def descarga():
     if URLL.get()!="":
         try:
             v = pafy.new(URLL.get())
-            s = v.getbest()
+            print(v.title)
+            try:
+                s = v.getbest(preftype="mp4")
+            except:
+                s = v.getbest()
             filename = s.download()
+            print(filename)
             messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
         except:
             messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
