@@ -34,7 +34,6 @@ def extrae_audio():
             except:
                 s = v.getbestaudio()
             s.download()
-            print(filename)
             messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
         except:
             messagebox.showwarning("ERROR","Se he producido un error en la descarga")
