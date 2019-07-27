@@ -7,8 +7,6 @@ from tkinter import messagebox
 import os
 import pafy
 
-#https://youtu.be/uQ9nsr9YoCQ
-
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
