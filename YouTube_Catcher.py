@@ -7,12 +7,15 @@ from tkinter import messagebox
 import os
 import pafy
 
+#https://youtu.be/uQ9nsr9YoCQ
+
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
 ventana.title("DESCARGA DESDE YOUTUBE")
 URLL=StringVar()
 directorio_actual=StringVar()
+#https://youtu.be/oV2Nqj5C9w0
 
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -63,6 +66,7 @@ dire_actu()
 Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30).place(x=196,y=130)
 Entry(ventana,font=('Arial',8),textvariable=directorio_actual,width=60).place(x=185,y=455)
 Label(ventana,width=12,text="DESTINO",bg="navajo white").place(x=314,y=432)
+Label(ventana,font=('Arial',30,'bold'),text="YouTube Catcher!",bg="navajo white").place(x=200,y=17)
 Button(ventana,width=20,text="CAMBIAR DIRECTORIO",bg="pale green",command=direc).place(x=287,y=270)
 Button(ventana,width=20,text="DESCARGAR VIDEO",bg="pale green",command=descarga).place(x=287,y=310)
 Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=314,y=109)
