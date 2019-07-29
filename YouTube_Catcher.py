@@ -27,6 +27,7 @@ def direc():
 def extrae_audio():
     if URLL.get()!="":
         try:
+           #v = pafy.new(URLL.get()[-11:-1]+URLL.get()[-1])
             v = pafy.new(URLL.get())
             print(v.title)
             try:
