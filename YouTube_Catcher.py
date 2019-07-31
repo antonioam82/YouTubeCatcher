@@ -6,6 +6,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 import os
 import pafy
+import threading
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -43,20 +44,21 @@ def get(c,v):
         except:
             s = v.getbestaudio()
     return s
+
+def descargando(co,vid):
+    so = get(co,vid)
+    try:
+        so.download()
+        messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
+    except:
+        messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
     
 def descarga(co):
     vid = verif_url()
     if vid!=None:
-        so = get(co,vid)
-        try:
-            if co == "vid":
-                filename = so.download()
-            else:
-                so.download()
-            messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
-        except:
-            messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
-        
+        t1 = threading.Thread(target = descargando , args =(co,vid) )
+        t1.start()
+    
 dire_actu()
     
 Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30).place(x=196,y=130)
