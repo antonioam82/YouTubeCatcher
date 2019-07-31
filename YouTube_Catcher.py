@@ -7,8 +7,6 @@ from tkinter import messagebox
 import os
 import pafy
 
-#https://youtu.be/taaFW8TGEzI
-
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
@@ -19,7 +17,6 @@ directorio_actual=StringVar()
 def dire_actu():
     directorio_actual.set(os.getcwd())
     
-
 def direc():
     directorio=filedialog.askdirectory()
     if directorio!="":
@@ -72,4 +69,3 @@ Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=314,y=109)
 Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud")).place(x=287,y=350)
 
 ventana.mainloop()
-
