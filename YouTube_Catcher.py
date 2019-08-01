@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # -*- encoding: utf-8 -*-
 from tkinter import *
+from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox
 import os
@@ -73,5 +74,6 @@ Button(ventana,width=20,text="CAMBIAR DIRECTORIO",bg="pale green",command=direc)
 Button(ventana,width=20,text="DESCARGAR VIDEO",bg="pale green",command=lambda:descarga("vid")).place(x=287,y=310)
 Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=314,y=109)
 Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud")).place(x=287,y=350)
-
+Label(ventana,width=12,text="PROGRESO",bg="navajo white").place(x=314,y=180)
+progressbar = ttk.Progressbar().place(x=196,y=200,width=335)
 ventana.mainloop()
