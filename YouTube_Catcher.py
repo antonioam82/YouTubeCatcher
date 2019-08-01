@@ -7,6 +7,7 @@ from tkinter import messagebox
 import os
 import pafy
 import threading
+#https://youtu.be/8tQ5YhpGl0Q
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -48,7 +49,10 @@ def get(c,v):
 def descargando(co,vid):
     so = get(co,vid)
     try:
-        so.download()
+        if co == "vid":
+            filename = so.download()
+        else:
+            so.download()
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
