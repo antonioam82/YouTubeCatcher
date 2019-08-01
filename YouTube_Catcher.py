@@ -16,6 +16,7 @@ ventana.configure(background="navajo white")
 ventana.title("DESCARGA DESDE YOUTUBE")
 URLL=StringVar()
 directorio_actual=StringVar()
+progreso=IntVar()
 
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -75,5 +76,6 @@ Button(ventana,width=20,text="DESCARGAR VIDEO",bg="pale green",command=lambda:de
 Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=314,y=109)
 Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud")).place(x=287,y=350)
 Label(ventana,width=12,text="PROGRESO",bg="navajo white").place(x=314,y=180)
-progressbar = ttk.Progressbar().place(x=196,y=200,width=335)
+progressbar = ttk.Progressbar(variable=progreso).place(x=196,y=200,width=335)
+
 ventana.mainloop()
