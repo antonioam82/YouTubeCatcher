@@ -42,14 +42,17 @@ def get(c,v):
         try:
             s = v.getbest(preftype="mp4")
             total_size=s.get_filesize()
-            print(total_size)
+            #print(total_size)
         except:
             s = v.getbest()
+            total_size=s.get_filesize()
     else:
         try:
             s = v.getbestaudio(preftype="m4a")
+            total_size=s.get_filesize()
         except:
             s = v.getbestaudio()
+            total_size=s.get_filesize()
     return s
 
 def mycb(total,recvd,ratio,rate,eta):
