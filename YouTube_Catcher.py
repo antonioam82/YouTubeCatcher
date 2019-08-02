@@ -61,7 +61,7 @@ def descargando(co,vid):
         if co == "vid":
             filename = so.download(quiet=True,callback=mycb)
         else:
-            so.download()
+            so.download(quiet=True,callback=mycb)
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
