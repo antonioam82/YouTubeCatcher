@@ -31,6 +31,9 @@ def verif_url():
     try:
         v = pafy.new(URLL.get())
         print(v.title)
+        streams = v.streams####################
+        for i in streams:####################3
+            print(i.get_filesize())##############
         return v
     except:
         messagebox.showwarning("ERROR","Introduzca URL de video")
