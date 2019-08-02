@@ -17,6 +17,7 @@ ventana.title("DESCARGA DESDE YOUTUBE")
 URLL=StringVar()
 directorio_actual=StringVar()
 progreso=IntVar()
+total_size=""
 
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -34,11 +35,14 @@ def verif_url():
         return v
     except:
         messagebox.showwarning("ERROR","Introduzca URL de video")
-
+    
 def get(c,v):
+    global total_size
     if c == "vid":
         try:
             s = v.getbest(preftype="mp4")
+            total_size=s.get_filesize()
+            print(total_size)
         except:
             s = v.getbest()
     else:
@@ -48,11 +52,14 @@ def get(c,v):
             s = v.getbestaudio()
     return s
 
+def mycb(total,recvd,ratio,rate,eta):
+    print(recvd)
+
 def descargando(co,vid):
     so = get(co,vid)
     try:
         if co == "vid":
-            filename = so.download()
+            filename = so.download(quiet=True,callback=mycb)
         else:
             so.download()
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
