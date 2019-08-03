@@ -18,6 +18,7 @@ URLL=StringVar()
 directorio_actual=StringVar()
 progreso=IntVar()
 total_size=""
+reciv=0
 
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -56,6 +57,8 @@ def get(c,v):
     return s
 
 def mycb(total,recvd,ratio,rate,eta):
+    global reciv
+    recib=recvd
     print(recvd)
 
 def descargando(co,vid):
