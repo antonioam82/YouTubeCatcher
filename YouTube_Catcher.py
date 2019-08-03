@@ -36,6 +36,7 @@ def verif_url():
         return v
     except:
         messagebox.showwarning("ERROR","Introduzca URL de video")
+        entrada.delete(0,len(URLL.get()))
     
 def get(c,v):
     global total_size
@@ -80,7 +81,8 @@ def descarga(co):
     
 dire_actu()
     
-Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30).place(x=196,y=130)
+entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
+entrada.place(x=196,y=130)
 Entry(ventana,font=('Arial',8),textvariable=directorio_actual,width=60).place(x=185,y=455)
 Label(ventana,width=12,text="DESTINO",bg="navajo white").place(x=314,y=432)
 Label(ventana,font=('Arial',30,'bold'),text="YouTube Catcher!",fg="red",bg="navajo white").place(x=193,y=17)
