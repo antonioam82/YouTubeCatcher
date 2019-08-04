@@ -57,6 +57,11 @@ def get(c,v):
             total_size=s.get_filesize()
     return s
 
+def estado(s):
+    boton_dire.config(state = s)
+    boton_descarga.config(state = s)
+    boton_audio.config(state = s)
+        
 def mycb(total,recvd,ratio,rate,eta):
     global reciv
     recib=recvd
@@ -70,12 +75,14 @@ def descargando(co,vid):
         else:
             so.download(quiet=True,callback=mycb)
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
+        estado('normal')
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
     
 def descarga(co):
     vid = verif_url()
     if vid!=None:
+        estado('disabled')
         t1 = threading.Thread(target = descargando , args =(co,vid) )
         t1.start()
     
@@ -83,14 +90,19 @@ dire_actu()
     
 entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
 entrada.place(x=196,y=130)
-Entry(ventana,font=('Arial',8),textvariable=directorio_actual,width=60).place(x=185,y=455)
+entrada2=Entry(ventana,font=('Arial',8),textvariable=directorio_actual,width=60)
+entrada2.place(x=185,y=455)
 Label(ventana,width=12,text="DESTINO",bg="navajo white").place(x=314,y=432)
 Label(ventana,font=('Arial',30,'bold'),text="YouTube Catcher!",fg="red",bg="navajo white").place(x=193,y=17)
-Button(ventana,width=20,text="CAMBIAR DIRECTORIO",bg="pale green",command=direc).place(x=287,y=270)
-Button(ventana,width=20,text="DESCARGAR VIDEO",bg="pale green",command=lambda:descarga("vid")).place(x=287,y=310)
+boton_dire=Button(ventana,width=20,text="CAMBIAR DIRECTORIO",bg="pale green",command=direc)
+boton_dire.place(x=287,y=270)
+boton_descarga=Button(ventana,width=20,text="DESCARGAR VIDEO",bg="pale green",command=lambda:descarga("vid"))
+boton_descarga.place(x=287,y=310)
 Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=316,y=109)
-Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud")).place(x=287,y=350)
+boton_audio=Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud"))
+boton_audio.place(x=287,y=350)
 Label(ventana,width=12,text="PROGRESO",bg="navajo white").place(x=316,y=180)
 progressbar = ttk.Progressbar(variable=progreso).place(x=196,y=200,width=335)
 
 ventana.mainloop()
+
