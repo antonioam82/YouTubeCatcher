@@ -9,6 +9,7 @@ import os
 import pafy
 import threading
 #https://youtu.be/8tQ5YhpGl0Q
+#https://youtu.be/pGzP56JZ0r4
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -16,9 +17,8 @@ ventana.configure(background="navajo white")
 ventana.title("DESCARGA DESDE YOUTUBE")
 URLL=StringVar()
 directorio_actual=StringVar()
-progreso=IntVar()
-total_size=""
-reciv=0
+total_size=0
+dif=0
 
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -64,10 +64,16 @@ def estado(s):
         
 def mycb(total,recvd,ratio,rate,eta):
     global reciv
-    recib=recvd
+    global dif
+    porcen=((recvd*100)/total_size)
+    avance=porcen-dif
+    prog.step(avance)
+    dif=porcen
+    print(avance)
     print(recvd)
 
 def descargando(co,vid):
+    global dif
     so = get(co,vid)
     try:
         if co == "vid":
@@ -75,9 +81,10 @@ def descargando(co,vid):
         else:
             so.download(quiet=True,callback=mycb)
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
-        estado('normal')
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
+    estado('normal')
+    dif=0
     
 def descarga(co):
     vid = verif_url()
@@ -85,6 +92,7 @@ def descarga(co):
         estado('disabled')
         t1 = threading.Thread(target = descargando , args =(co,vid) )
         t1.start()
+        
     
 dire_actu()
     
@@ -102,7 +110,8 @@ Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=316,y=109)
 boton_audio=Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud"))
 boton_audio.place(x=287,y=350)
 Label(ventana,width=12,text="PROGRESO",bg="navajo white").place(x=316,y=180)
-progressbar = ttk.Progressbar(variable=progreso).place(x=196,y=200,width=335)
+prog=progressbar = ttk.Progressbar(ventana)
+prog.place(x=196,y=200,width=335)
 
 ventana.mainloop()
 
