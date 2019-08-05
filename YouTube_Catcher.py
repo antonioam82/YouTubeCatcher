@@ -8,8 +8,6 @@ from tkinter import messagebox
 import os
 import pafy
 import threading
-#https://youtu.be/8tQ5YhpGl0Q
-#https://youtu.be/pGzP56JZ0r4
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -93,7 +91,6 @@ def descarga(co):
         t1 = threading.Thread(target = descargando , args =(co,vid) )
         t1.start()
         
-    
 dire_actu()
     
 entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
