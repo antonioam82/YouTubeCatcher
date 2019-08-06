@@ -68,7 +68,7 @@ def mycb(total,recvd,ratio,rate,eta):
     prog.step(avance)
     dif=porcen
     #print(avance)
-    #print(recvd)
+    print(recvd)
 
 def descargando(co,vid):
     global dif
