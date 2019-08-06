@@ -61,7 +61,6 @@ def estado(s):
     boton_audio.config(state = s)
         
 def mycb(total,recvd,ratio,rate,eta):
-    global reciv
     global dif
     porcen=((recvd*100)/total_size)
     avance=porcen-dif
