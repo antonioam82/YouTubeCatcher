@@ -42,7 +42,6 @@ def get(c,v):
         try:
             s = v.getbest(preftype="mp4")
             total_size=s.get_filesize()
-            #print(total_size)
         except:
             s = v.getbest()
             total_size=s.get_filesize()
@@ -66,18 +65,15 @@ def mycb(total,recvd,ratio,rate,eta):
     avance=porcen-dif
     prog.step(avance)
     dif=porcen
-    #print(avance)
     print(recvd)
 
 def descargando(co,vid):
     global dif
     so = get(co,vid)
     try:
-        if co == "vid":
-            filename = so.download(quiet=True,callback=mycb)
-        else:
-            so.download(quiet=True,callback=mycb)
+        so.download(quiet=True,callback=mycb)
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
+        
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
     estado('normal')
