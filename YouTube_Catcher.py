@@ -60,7 +60,6 @@ def estado(s):
 def mycb(total,recvd,ratio,rate,eta):
     global dif
     porcen=((recvd*100)/total_size)
-    #avance=porcen-dif
     prog.step(porcen-dif)
     dif=porcen
     print(recvd)
