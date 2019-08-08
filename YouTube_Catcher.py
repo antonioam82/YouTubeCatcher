@@ -79,7 +79,7 @@ def descarga(co):
     vid = verif_url()
     if vid!=None:
         estado('disabled')
-        t1 = threading.Thread(target = descargando , args =(co,vid) )
+        t1 = threading.Thread(target = descargando , args = (co,vid) )
         t1.start()
         
 dire_actu()
