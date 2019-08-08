@@ -41,17 +41,14 @@ def get(c,v):
     if c == "vid":
         try:
             s = v.getbest(preftype="mp4")
-            total_size=s.get_filesize()
         except:
             s = v.getbest()
-            total_size=s.get_filesize()
     else:
         try:
             s = v.getbestaudio(preftype="m4a")
-            total_size=s.get_filesize()
         except:
             s = v.getbestaudio()
-            total_size=s.get_filesize()
+    total_size=s.get_filesize()
     return s
 
 def estado(s):
@@ -106,4 +103,5 @@ prog=progressbar = ttk.Progressbar(ventana)
 prog.place(x=196,y=200,width=335)
 
 ventana.mainloop()
+
 
