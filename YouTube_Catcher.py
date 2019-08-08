@@ -84,7 +84,6 @@ def descarga(co):
         t1 = threading.Thread(target = descargando , args =(co,vid) )
         t1.start()
         
-    
 dire_actu()
     
 entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
