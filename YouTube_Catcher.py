@@ -8,6 +8,8 @@ from tkinter import messagebox
 import os
 import pafy
 import threading
+#https://youtu.be/8tQ5YhpGl0Q
+#https://youtu.be/1vgOZAKfTDk
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -59,8 +61,8 @@ def estado(s):
 def mycb(total,recvd,ratio,rate,eta):
     global dif
     porcen=((recvd*100)/total_size)
-    avance=porcen-dif
-    prog.step(avance)
+    #avance=porcen-dif
+    prog.step(porcen-dif)
     dif=porcen
     print(recvd)
 
@@ -83,6 +85,7 @@ def descarga(co):
         t1 = threading.Thread(target = descargando , args =(co,vid) )
         t1.start()
         
+    
 dire_actu()
     
 entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
