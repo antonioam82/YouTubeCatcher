@@ -9,7 +9,6 @@ import os
 import pafy
 import threading
 #https://youtu.be/8tQ5YhpGl0Q
-#https://youtu.be/1vgOZAKfTDk
 
 ventana=Tk()
 ventana.geometry("712x490")
