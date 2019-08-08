@@ -8,7 +8,6 @@ from tkinter import messagebox
 import os
 import pafy
 import threading
-#https://youtu.be/8tQ5YhpGl0Q
 
 ventana=Tk()
 ventana.geometry("712x490")
@@ -18,7 +17,7 @@ URLL=StringVar()
 directorio_actual=StringVar()
 total_size=0
 dif=0
-
+    
 def dire_actu():
     directorio_actual.set(os.getcwd())
     
@@ -59,7 +58,7 @@ def estado(s):
         
 def mycb(total,recvd,ratio,rate,eta):
     global dif
-    porcen=((recvd*100)/total_size)
+    porcen=(recvd*100/total_size)
     prog.step(porcen-dif)
     dif=porcen
     print(recvd)
@@ -70,9 +69,9 @@ def descargando(co,vid):
     try:
         so.download(quiet=True,callback=mycb)
         messagebox.showinfo("FIN DE DESCARGA","Descarga finalizada con éxito")
-        
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
+        prog.step(100)
     estado('normal')
     dif=0
     
@@ -103,5 +102,4 @@ prog=progressbar = ttk.Progressbar(ventana)
 prog.place(x=196,y=200,width=335)
 
 ventana.mainloop()
-
 
