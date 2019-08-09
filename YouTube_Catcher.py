@@ -59,9 +59,9 @@ def estado(s):
 def mycb(total,recvd,ratio,rate,eta):
     global dif
     porcen=(recvd*100/total_size)
+    eti_porcent.config(text=((int(porcen),"%")))
     prog.step(porcen-dif)
     dif=porcen
-    print(recvd)
 
 def descargando(co,vid):
     global dif
@@ -73,11 +73,14 @@ def descargando(co,vid):
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
         prog.step(100)
     estado('normal')
+    eti.place(x=317,y=180)
+    eti_porcent.config(text=" ")
     dif=0
     
 def descarga(co):
     vid = verif_url()
     if vid!=None:
+        eti.place(x=306,y=180)
         estado('disabled')
         t1 = threading.Thread(target = descargando , args = (co,vid) )
         t1.start()
@@ -97,7 +100,10 @@ boton_descarga.place(x=287,y=310)
 Label(ventana,width=12,text="URL de video",bg="navajo white").place(x=316,y=109)
 boton_audio=Button(ventana,width=20,text="EXTRAER AUDIO",bg="pale green",command=lambda:descarga("aud"))
 boton_audio.place(x=287,y=350)
-Label(ventana,width=12,text="PROGRESO",bg="navajo white").place(x=316,y=180)
+eti=Label(ventana,width=12,text="PROGRESO",bg="navajo white")
+eti.place(x=317,y=180)
+eti_porcent=Label(ventana,width=4,bg="navajo white")
+eti_porcent.place(x=392,y=180)
 prog=progressbar = ttk.Progressbar(ventana)
 prog.place(x=196,y=200,width=335)
 
