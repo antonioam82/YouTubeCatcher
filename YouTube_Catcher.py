@@ -9,6 +9,8 @@ import os
 import pafy
 import threading
 
+#https://youtu.be/fnL75jrSU9k
+
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
@@ -85,7 +87,7 @@ def descarga(co):
         t1 = threading.Thread(target = descargando , args = (co,vid) )
         t1.start()
         
-dire_actu()
+dire_actu() #LLAMADA A PRIMERA FUNCIÓN A EJECUTAR.
     
 entrada=Entry(ventana,font=('Arial',15,'bold'),textvariable=URLL,width=30)
 entrada.place(x=196,y=130)
