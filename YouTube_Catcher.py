@@ -80,6 +80,7 @@ def descargando(co,vid):
     eti.place(x=317,y=180)
     eti_porcent.config(text=" ")
     dif=0
+    total_size=0
     
 def descarga(co):
     vid = verif_url()
