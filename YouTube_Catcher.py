@@ -9,6 +9,9 @@ import os
 import pafy
 import threading
 
+#https://youtu.be/fnL75jrSU9k3
+#https://youtu.be/gofJrNfBSbo
+
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
@@ -72,6 +75,7 @@ def descargando(co,vid):
     except:
         messagebox.showwarning("ERROR","Se ha producido un error en la descarga")
         prog.step(100)
+        entrada.delete(0,len(URLL.get()))
     estado('normal')
     eti.place(x=317,y=180)
     eti_porcent.config(text=" ")
