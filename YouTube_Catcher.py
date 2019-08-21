@@ -9,9 +9,6 @@ import os
 import pafy
 import threading
 
-#https://youtu.be/fnL75jrSU9k3
-#https://youtu.be/gofJrNfBSbo
-
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
@@ -36,7 +33,8 @@ def verif_url():
         print(v.title)
         return v
     except:
-        messagebox.showwarning("ERROR","Introduzca URL de video")
+        messagebox.showwarning("ALGO SALIÓ MAL", """Asegurese de haber introducido la URL correctamente.
+Si el problema persiste, compruebe su conexión a internet.""")
         entrada.delete(0,len(URLL.get()))
     
 def get(c,v):
