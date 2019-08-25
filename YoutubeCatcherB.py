@@ -17,7 +17,7 @@ URLL=StringVar()
 directorio_actual=StringVar()
 total_size=0
 dif=0
-cancel=False
+cancel=True
     
 def dire_actu():
     directorio_actual.set(os.getcwd())
@@ -91,10 +91,12 @@ def descargando(co,vid):
     total_size=0
     
 def descarga(co):
+    global cancel
     vid = verif_url()
     if vid!=None:
         eti.place(x=306,y=180)
         estado('disabled')
+        cancel=False
         t1 = threading.Thread(target = descargando , args = (co,vid) )
         t1.start()
         
