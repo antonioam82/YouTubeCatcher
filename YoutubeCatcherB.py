@@ -9,11 +9,6 @@ import os
 import pafy
 import threading
 
-#https://youtu.be/fnL75jrSU9k3
-#https://youtu.be/gofJrNfBSbo
-#https://youtu.be/8tQ5YhpGl0Q
-#https://youtu.be/nsSq8_IwSdM
-
 ventana=Tk()
 ventana.geometry("712x490")
 ventana.configure(background="navajo white")
