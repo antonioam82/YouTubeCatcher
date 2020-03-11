@@ -33,8 +33,7 @@ def verif_url():
         print(v.title)
         return v
     except:
-        messagebox.showwarning("ALGO SALIÓ MAL", """Asegurese de haber introducido la URL correctamente.
-Si el problema persiste, compruebe su conexión a internet.""")
+        messagebox.showwarning("ALGO SALIÓ MAL", "VIDEO NO DISPONIBLE")
         entrada.delete(0,len(URLL.get()))
     
 def get(c,v):
